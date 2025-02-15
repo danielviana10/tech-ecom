@@ -18,6 +18,10 @@ export const routes: Routes = [
     loadComponent: () => import('./cart/cart.component').then(m => m.CartComponent),
   },
   {
+    path: 'contacts',
+    loadComponent: () => import('./contacts/contacts.component').then(m => m.ContactsComponent),
+  },
+  {
     path: '**', component: NotFoundComponent
   }
 ];

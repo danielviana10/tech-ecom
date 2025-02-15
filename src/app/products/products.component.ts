@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IProduct } from '../../products';
 import { ProductsService } from '../products.service';
 
@@ -15,11 +15,22 @@ export class ProductsComponent {
   products: IProduct[] | undefined;
 
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.products = this.productsService.getAll();
+    const products = this.productsService.getAll()
+    this.route.queryParamMap.subscribe(params => {
+      const description = params.get('description')?.toLowerCase();
+
+      if(description) {
+        this.products = products.filter(p => p.description.toLowerCase().includes(description));
+        return;
+      }
+
+      this.products = products;
+    })
   }
 
 }

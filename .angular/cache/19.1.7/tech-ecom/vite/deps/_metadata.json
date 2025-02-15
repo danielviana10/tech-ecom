@@ -1,0 +1,85 @@
+{
+  "hash": "ddffa951",
+  "configHash": "f0979f65",
+  "lockfileHash": "e51adf37",
+  "browserHash": "bb8c62f0",
+  "optimized": {
+    "@angular/cdk/bidi": {
+      "src": "../../../../../../node_modules/@angular/cdk/fesm2022/bidi.mjs",
+      "file": "@angular_cdk_bidi.js",
+      "fileHash": "f4293f9f",
+      "needsInterop": false
+    },
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "53dde818",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "9939ce28",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "78c09f7e",
+      "needsInterop": false
+    },
+    "@angular/material/snack-bar": {
+      "src": "../../../../../../node_modules/@angular/material/fesm2022/snack-bar.mjs",
+      "file": "@angular_material_snack-bar.js",
+      "fileHash": "13d4e919",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "3fe0853b",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations/async": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
+      "file": "@angular_platform-browser_animations_async.js",
+      "fileHash": "7528eb01",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "1a1ae8d6",
+      "needsInterop": false
+    },
+    "ngx-mask": {
+      "src": "../../../../../../node_modules/ngx-mask/fesm2022/ngx-mask.mjs",
+      "file": "ngx-mask.js",
+      "fileHash": "22ac8ddb",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "browser-DKOA22FP": {
+      "file": "browser-DKOA22FP.js"
+    },
+    "chunk-KUVTJVQU": {
+      "file": "chunk-KUVTJVQU.js"
+    },
+    "chunk-ZFIBK3MD": {
+      "file": "chunk-ZFIBK3MD.js"
+    },
+    "chunk-N3GFWQAU": {
+      "file": "chunk-N3GFWQAU.js"
+    },
+    "chunk-5UWDSAYB": {
+      "file": "chunk-5UWDSAYB.js"
+    },
+    "chunk-3SAYUQXN": {
+      "file": "chunk-3SAYUQXN.js"
+    },
+    "chunk-PCBEJI2G": {
+      "file": "chunk-PCBEJI2G.js"
+    }
+  }
+}

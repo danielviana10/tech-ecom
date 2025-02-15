@@ -5,23 +5,19 @@
   <div class="container-menu">
     <nav class="main-header__menu">
       <ul>
-        <li><a>Products</a></li>
+        <li><a routerLink="/products">Products</a></li>
         <li>
-          <a>
+          <a routerLink="/cart">
             <i class="fa-solid fa-cart-shopping"></i>
             Cart
-            <span class="badge-cart">0</span>
+            <span class="badge-cart">{{ cartService.getterCart().length }}</span>
           </a>
         </li>
-        <li>
-          <a>
-            Contacts
-          </a>
-        </li>
-        <li><a><i class="fa-brands fa-square-facebook"></i></a></li>
-        <li><a><i class="fa-brands fa-square-instagram"></i></a></li>
-        <li><a><i class="fa-brands fa-square-x-twitter"></i></a></li>
-        <li><a><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a routerLink="/contacts">Contacts</a></li>
+        <li><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a></li>
+        <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-square-instagram"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a></li>
+        <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
       </ul>
     </nav>
     <form class="search-form">

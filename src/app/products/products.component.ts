@@ -13,6 +13,7 @@ import { ProductsService } from '../products.service';
 })
 export class ProductsComponent {
   products: IProduct[] | undefined;
+  isHovered: { [key: number]: boolean } = {};
 
   constructor(
     private productsService: ProductsService,
@@ -31,6 +32,14 @@ export class ProductsComponent {
 
       this.products = products;
     })
+  }
+
+  onMouseEnter(productId: number) {
+    this.isHovered[productId] = true;
+  }
+
+  onMouseLeave(productId: number) {
+    this.isHovered[productId] = false;
   }
 
 }

@@ -2,21 +2,28 @@
   @for (product of products; track product) {
     <div class="product-list__card">
         <a routerLink="/products/{{ product.id }}" class="product-list__link">
-
-            <img [src]="product.image" [alt]="product.description">
-            <h2 class="product-item__name">
-              {{ product.description }}
-            </h2>
-            <p class="product-item__price">
-              {{ product.price | currency: 'BRL' }}
-            </p>
-            <p class="product-item__price-description">
-              {{ product.priceDescription }}
-            </p>
-            <button class="product-item__buy-button" type="button">
-              Buy
-            </button>
-
+            <div class="product-image__container">
+                <img [src]="product.image" [alt]="product.description">
+            </div>
+            <div class="product-list__info">
+              <div class="product-list__texts">
+                <h2 class="product-item__name">
+                  {{ product.description }}
+                </h2>
+                <p class="product-item__price-description">
+                  {{ product.priceDescription }}
+                </p>
+                <p class="product-item__price">
+                  {{ product.price | currency: 'BRL' }}
+                </p>
+              </div>
+              <button class="product-item__buy-button"
+                      (mouseenter)="onMouseEnter(product.id)"
+                      (mouseleave)="onMouseLeave(product.id)">
+                <i class="fa-solid fa-plus"></i>
+                <span *ngIf="isHovered[product.id]"> Add to cart</span>
+              </button>
+            </div>
         </a>
     </div>
   }

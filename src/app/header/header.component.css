@@ -1,16 +1,11 @@
 .main-header {
     padding: 10px 0px;
     display: flex;
-    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     column-gap: 40px;
     width: 100%;
-}
-
-.main-header__title {
-    font-size: 80px;
-    letter-spacing: -1.5px;
+    border-bottom: 2px solid black;
 }
 
 .main-header__title--blue {
@@ -33,32 +28,50 @@
 .main-header__menu ul {
     display: flex;
     justify-content: flex-end;
+    gap: 1rem;
 }
 
 .main-header__menu a {
-    padding: 10px 10px;
-    color: var(--gray);
-    font-weight: 400;
-    font-size: 22px;
-    text-decoration: none;
-    transition: all .3s ease-in-out;
+  padding: 10px 10px;
+  color: var(--gray);
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  transition: letter-spacing 0.3s ease-in-out;
+  letter-spacing: 1.5px;
+  position: relative;
 }
 
-.main-header__menu a:hover {
-    background-color: var(--blue);
-    color: #fff;
+.main-header__menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gray);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.main-header__menu a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.main-header__img {
+  width: 12rem;
 }
 
 .container-menu {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
     row-gap: 20px;
-    flex: 1;
 }
 
 .badge-cart {
-    background-color: var(--dark-blue);
+    background-color: var(--gray);
     padding: 5px 10px;
     border-radius: 4px;
     color: white;

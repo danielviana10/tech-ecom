@@ -7,8 +7,6 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-content: flex-start;
-  height: 500px;
-  overflow-y: auto;
 }
 
 .product-list__card {
@@ -83,6 +81,7 @@
     font-size: 16px;
     font-weight: 600;
     color: var(--gray);
+    width: 8rem;
 }
 
 .product-item__price {
@@ -108,7 +107,7 @@
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   overflow: hidden;
   white-space: nowrap;
   padding: 0 5px;
@@ -116,7 +115,7 @@
 
 .product-item__buy-button span {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
   margin-left: 5px;
   font-size: 12px;
 }

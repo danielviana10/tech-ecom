@@ -3,4 +3,10 @@
   <button type="submit">
     <i class="fa-solid fa-magnifying-glass"></i>
   </button>
+  <div class="cart-container">
+    <a routerLink="/cart">
+      <img class="img-bag" src="./icons/bag-shopping.svg">
+      <span class="badge-cart">{{ cartService.getterCart().length }}</span>
+    </a>
+  </div>
 </form>

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-search-bar',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   standalone: true,
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.css'
@@ -15,7 +16,8 @@ export class SearchBarComponent {
   description: string = '';
 
   constructor(
-    private router: Router
+    private router: Router,
+    public cartService: CartService
   ) {
 
   }

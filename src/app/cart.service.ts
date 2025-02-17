@@ -2,30 +2,42 @@ import { Injectable } from '@angular/core';
 import { ICartItem } from '../products';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-  items: ICartItem[] = []
+  items: ICartItem[] = [];
 
-  constructor() { }
+  constructor() {}
 
   getterCart() {
-    this.items = JSON.parse(localStorage.getItem("cart") || "[]");
+    this.items = JSON.parse(localStorage.getItem('cart') || '[]');
     return this.items;
-  };
+  }
 
   addToCart(product: ICartItem) {
-    this.items.push(product);
-    localStorage.setItem("cart", JSON.stringify(this.items));
-  };
+    this.items = this.getterCart();
+
+    const existingItem = this.items.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      existingItem.quantity = Math.min(
+        existingItem.quantity + product.quantity,
+        existingItem.stock
+      );
+    } else {
+      this.items.push({ ...product });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(this.items));
+  }
 
   removeFromCart(id: number) {
-    this.items = this.items.filter(item => item.id !== id);
-    localStorage.setItem("cart", JSON.stringify(this.items));
+    this.items = this.items.filter((item) => item.id !== id);
+    localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
   clearCart() {
     this.items = [];
-    localStorage.removeItem("cart");
+    localStorage.removeItem('cart');
   }
 }

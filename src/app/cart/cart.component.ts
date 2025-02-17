@@ -10,16 +10,14 @@ import { Router } from '@angular/router';
   imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  styleUrl: './cart.component.css',
 })
 export class CartComponent {
   cartItems: ICartItem[] = [];
   totalPrice: number = 0;
+  stock: number = 0;
 
-  constructor(
-    public cartService: CartService,
-    private router: Router
-  ) { }
+  constructor(public cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getterCart();
@@ -27,18 +25,21 @@ export class CartComponent {
   }
 
   calculateTotalPrice() {
-    this.totalPrice = this.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    this.totalPrice = this.cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
   }
 
   removeFromCart(id: number): void {
-    this.cartItems = this.cartItems.filter(item => item.id !== id);
+    this.cartItems = this.cartItems.filter((item) => item.id !== id);
     this.cartService.removeFromCart(id);
     this.calculateTotalPrice();
   }
 
   buyItems() {
     alert('Você finalizou a sua compra!');
-    this.cartService.clearCart()
-    this.router.navigate(['products'])
+    this.cartService.clearCart();
+    this.router.navigate(['products']);
   }
 }

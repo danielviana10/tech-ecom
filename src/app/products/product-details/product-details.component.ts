@@ -12,31 +12,61 @@ import { CartService } from '../../cart.service';
   imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
   product: IProduct | undefined;
   quantity: number = 1;
+  backgroundColor: string = '';
 
   constructor(
     private productsService: ProductsService,
     private route: ActivatedRoute,
     private notificationService: NotificationService,
     private cartService: CartService
-  ) { }
+  ) {}
 
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
     const productId = Number(routeParams.get('id'));
     this.product = this.productsService.getOne(productId);
+
+    const state = window.history.state;
+    if (state && state.backgroundColor) {
+      this.backgroundColor = state.backgroundColor;
+    }
   }
 
   addToCart() {
-    this.notificationService.notify('The product has been added to the card');
+    if (!this.product) return;
+
+    if (this.quantity > this.product.stock) {
+      this.notificationService.notify('Not enough stock available');
+      return;
+    }
+
+    this.notificationService.notify('The product has been added to the cart');
+
     const product: ICartItem = {
-      ...this.product!,
-      quantity: this.quantity
+      ...this.product,
+      quantity: this.quantity,
+      backgroundColor: this.backgroundColor,
     };
+
     this.cartService.addToCart(product);
+
+    this.product.stock -= this.quantity;
+  }
+
+  decrementQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+
+  incrementQuantity() {
+    if (this.quantity < (this.product?.stock ?? 0)) {
+      this.quantity++;
+    }
   }
 }

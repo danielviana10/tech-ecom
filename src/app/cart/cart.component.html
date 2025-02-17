@@ -3,12 +3,17 @@
   <ul>
     @for (cartItem of cartItems; track cartItem.id) {
     <li>
-      <img [src]="cartItem.image">
+      <div class="product-image__container" [style.background-color]="cartItem.backgroundColor">
+        <img [src]="cartItem.image">
+      </div>
       <p>{{cartItem.description}}</p>
       <p>Preço: {{ cartItem.price | currency:'BRL'}}</p>
       <label>
         Quantidade:
-        <input type="number" [(ngModel)]="cartItem.quantity" (change)="calculateTotalPrice()">
+        <input type="number" [(ngModel)]="cartItem.quantity"
+               (change)="calculateTotalPrice()"
+               min="1"
+               [max]="cartItem.stock">
       </label>
       <button class="remove-button" (click)="removeFromCart(cartItem.id)">
         <i class="fa-solid fa-xmark"></i>

@@ -1,30 +1,30 @@
 <section class="product-list">
-  @for (product of products; track product) {
+  @for (product of products; track trackByProductId($index, product)) {
     <div class="product-list__card">
-        <a routerLink="/products/{{ product.id }}" class="product-list__link">
-            <div class="product-image__container">
-                <img [src]="product.image" [alt]="product.description">
-            </div>
-            <div class="product-list__info">
-              <div class="product-list__texts">
-                <h2 class="product-item__name">
-                  {{ product.description }}
-                </h2>
-                <p class="product-item__price-description">
-                  {{ product.priceDescription }}
-                </p>
-                <p class="product-item__price">
-                  {{ product.price | currency: 'BRL' }}
-                </p>
-              </div>
-              <button class="product-item__buy-button"
-                      (mouseenter)="onMouseEnter(product.id)"
-                      (mouseleave)="onMouseLeave(product.id)">
-                <i class="fa-solid fa-plus"></i>
-                <span *ngIf="isHovered[product.id]"> Add to cart</span>
-              </button>
-            </div>
-        </a>
+      <a (click)="navigateToProduct(product, $index)" class="product-list__link">
+        <div class="product-image__container" [style.background-color]="getBackgroundColor($index)">
+          <img [src]="product.image" [alt]="product.description" loading="lazy">
+        </div>
+        <div class="product-list__info">
+          <div class="product-list__texts">
+            <h2 class="product-item__name">
+              {{ product.description }}
+            </h2>
+            <p class="product-item__price-description">
+              {{ product.priceDescription }}
+            </p>
+            <p class="product-item__price">
+              {{ product.price | currency: 'BRL' }}
+            </p>
+          </div>
+          <button class="product-item__buy-button"
+                  (mouseenter)="onMouseEnter(product.id)"
+                  (mouseleave)="onMouseLeave(product.id)">
+            <i class="fa-solid fa-plus"></i>
+            <span *ngIf="isHovered[product.id]"> Add to cart</span>
+          </button>
+        </div>
+      </a>
     </div>
   }
 </section>

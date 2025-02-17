@@ -10,7 +10,7 @@ li {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 8px;
     overflow: hidden;
-    margin: 10px 0;
+    margin: 15px 0;
     height: 100px;
     align-items: center;
     justify-content: space-between;
@@ -24,6 +24,18 @@ img {
     width: 100px;
     height: 100px;
     display: block;
+}
+
+.cart-item-description {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-price {
+  width: 100px;
+  text-align: start;
 }
 
 .remove-button {

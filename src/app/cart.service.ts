@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ICartItem } from '../products';
+import { ProductsService } from './products.service';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { ICartItem } from '../products';
 export class CartService {
   items: ICartItem[] = [];
 
-  constructor() {}
+  constructor(private productsService: ProductsService) {}
 
   getterCart() {
     this.items = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -27,11 +28,16 @@ export class CartService {
     } else {
       this.items.push({ ...product });
     }
-
     localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
   removeFromCart(id: number) {
+    const itemToRemove = this.items.find((item) => item.id === id);
+
+    if (itemToRemove) {
+      this.productsService.updateStock(id, itemToRemove.quantity);
+    }
+
     this.items = this.items.filter((item) => item.id !== id);
     localStorage.setItem('cart', JSON.stringify(this.items));
   }

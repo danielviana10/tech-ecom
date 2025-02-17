@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
 export class CartComponent {
   cartItems: ICartItem[] = [];
   totalPrice: number = 0;
-  stock: number = 0;
 
   constructor(public cartService: CartService, private router: Router) {}
 

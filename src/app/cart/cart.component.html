@@ -6,8 +6,8 @@
       <div class="product-image__container" [style.background-color]="cartItem.backgroundColor">
         <img [src]="cartItem.image">
       </div>
-      <p>{{cartItem.description}}</p>
-      <p>Preço: {{ cartItem.price | currency:'BRL'}}</p>
+      <p class="cart-item-description">{{cartItem.description}}</p>
+      <p class="cart-item-price">{{ cartItem.price | currency:'BRL'}}</p>
       <label>
         Quantidade:
         <input type="number" [(ngModel)]="cartItem.quantity"

@@ -1,7 +1,7 @@
 <section class="product-list">
   @for (product of products; track trackByProductId($index, product)) {
     <div class="product-list__card">
-      <a (click)="navigateToProduct(product, $index)" class="product-list__link">
+      <a class="product-list__link">
         <div class="product-image__container" [style.background-color]="getBackgroundColor($index)">
           <img [src]="product.image" [alt]="product.description" loading="lazy">
         </div>
@@ -21,7 +21,7 @@
                   (mouseenter)="onMouseEnter(product.id)"
                   (mouseleave)="onMouseLeave(product.id)">
             <i class="fa-solid fa-plus"></i>
-            <span *ngIf="isHovered[product.id]"> Add to cart</span>
+            <span (click)="navigateToProduct(product, $index)" *ngIf="isHovered[product.id]"> Add to cart</span>
           </button>
         </div>
       </a>

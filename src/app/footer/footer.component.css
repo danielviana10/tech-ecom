@@ -13,8 +13,6 @@
 
 .footer__copyright {
   text-align: center;
-  margin-top: 20px;
-  background-color: var(--light-gray-2);
   font-weight: bold;
   padding: 20px;
   color: var(--gray);
@@ -23,7 +21,7 @@
 .footer__title {
   font-size: 22px;
   font-weight: bold;
-  color: var(--blue);
+  color: black;
   margin-bottom: 5px;
 }
 
@@ -33,7 +31,7 @@
 }
 
 .footer i {
-  color: var(--orange);
+  color: black;
 }
 
 .footer li {

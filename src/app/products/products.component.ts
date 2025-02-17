@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { IProduct } from '../../products';
@@ -12,8 +12,12 @@ import { ProductsService } from '../products.service';
   styleUrl: './products.component.css',
 })
 export class ProductsComponent {
-  products: IProduct[] | undefined;
+  products: IProduct[] = [];
   isHovered: { [key: number]: boolean } = {};
+  private currentPage = 1;
+  private pageSize = 6;
+  public allProducts: IProduct[] = [];
+  private isLoading = false;
 
   constructor(
     private productsService: ProductsService,
@@ -22,18 +26,44 @@ export class ProductsComponent {
   ) {}
 
   ngOnInit() {
-    const allProducts = this.productsService.getAll();
-    this.route.queryParamMap.subscribe((params) => {
-      const description = params.get('description')?.toLowerCase();
+    const storedProducts = localStorage.getItem('products');
 
-      if (description) {
-        this.products = allProducts.filter((p) =>
-          p.description.toLowerCase().includes(description)
-        );
-      } else {
-        this.products = allProducts;
-      }
-    });
+    if (storedProducts) {
+      this.allProducts = JSON.parse(storedProducts);
+    } else {
+      this.allProducts = this.productsService.getAll();
+    }
+
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    const newProducts = this.allProducts.slice(startIndex, endIndex);
+
+    setTimeout(() => {
+      this.products = [...this.products, ...newProducts];
+      this.currentPage++;
+      this.isLoading = false;
+    }, 500);
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (this.isNearBottom() && !this.isLoading) {
+      this.isLoading = true;
+      this.loadProducts();
+    }
+  }
+
+  isNearBottom(): boolean {
+    const scrollY = window.scrollY;
+    const visibleHeight = window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+    const threshold = 200;
+
+    return scrollY + visibleHeight >= pageHeight - threshold;
   }
 
   onMouseEnter(productId: number) {

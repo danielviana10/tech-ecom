@@ -1,28 +1,70 @@
 <h2 class="cart-title">Carrinho</h2>
 <div *ngIf="cartItems.length > 0; else withoutProducts">
-  <ul>
-    @for (cartItem of cartItems; track cartItem.id) {
-    <li>
-      <div class="product-image__container" [style.background-color]="cartItem.backgroundColor">
-        <img [src]="cartItem.image">
-      </div>
-      <p class="cart-item-description">{{cartItem.description}}</p>
-      <p class="cart-item-price">{{ cartItem.price | currency:'BRL'}}</p>
-      <label>
-        Quantidade:
-        <input type="number" [(ngModel)]="cartItem.quantity"
-               (change)="calculateTotalPrice()"
-               min="1"
-               [max]="cartItem.stock">
-      </label>
-      <button class="remove-button" (click)="removeFromCart(cartItem.id)">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </li>
-  }
-  </ul>
-  <h2 class="cart-total">Total: {{ totalPrice | currency: 'BRL'}}</h2>
+  <table class="cart-table">
+    <!-- Cabeçalho das colunas -->
+    <thead>
+      <tr>
+        <th>Imagem</th>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Quantidade</th>
+        <th>Remover</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Lista de itens -->
+      @for (cartItem of cartItems; track cartItem.id) {
+      <tr class="cart-item">
+        <td class="cart-item-image">
+          <div
+            class="product-image__container"
+            [style.background-color]="cartItem.backgroundColor"
+          >
+            <img [src]="cartItem.image" />
+          </div>
+        </td>
+        <td class="cart-item-description">{{ cartItem.description }}</td>
+        <td class="cart-item-price">{{ cartItem.price | currency : "BRL" }}</td>
+        <td class="cart-item-quantity">
+          <div class="quantity-buttons">
+            <button
+              class="label-btn btn1"
+              type="button"
+              (click)="decrementCartItemQuantity(cartItem)"
+              [style.background-color]="cartItem.backgroundColor"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              [(ngModel)]="cartItem.quantity"
+              (change)="calculateTotalPrice()"
+              min="1"
+              [max]="cartItem.stock"
+            />
+            <button
+              class="label-btn btn2"
+              type="button"
+              (click)="incrementCartItemQuantity(cartItem)"
+              [style.background-color]="cartItem.backgroundColor"
+            >
+              +
+            </button>
+          </div>
+        </td>
+        <td class="cart-item-remove">
+          <button class="remove-button" (click)="removeFromCart(cartItem.id)">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <h2 class="cart-total">Total: {{ totalPrice | currency : "BRL" }}</h2>
   <button class="buy-button" (click)="buyItems()">Comprar</button>
 </div>
 
-<ng-template #withoutProducts>Nenhum produto foi adicionado ao carrinho</ng-template>
+<ng-template #withoutProducts
+  >Nenhum produto foi adicionado ao carrinho</ng-template
+>

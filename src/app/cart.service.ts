@@ -36,10 +36,11 @@ export class CartService {
 
     if (itemToRemove) {
       this.productsService.updateStock(id, itemToRemove.quantity);
+      this.items = this.items.filter((item) => item.id !== id);
+      localStorage.setItem('cart', JSON.stringify(this.items));
+      return itemToRemove;
     }
-
-    this.items = this.items.filter((item) => item.id !== id);
-    localStorage.setItem('cart', JSON.stringify(this.items));
+    return null;
   }
 
   clearCart() {

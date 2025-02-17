@@ -7,20 +7,40 @@ import { IProduct, products } from '../products';
 export class ProductsService {
   products: IProduct[] = products;
 
-  constructor() {}
-
-  getAll() {
-    return this.products;
+  constructor() {
+    // Se não houver produtos no localStorage, salva os produtos iniciais
+    if (!localStorage.getItem('products')) {
+      localStorage.setItem('products', JSON.stringify(this.products));
+    }
   }
 
-  getOne(id: number) {
-    return this.products.find((product) => product.id === id);
+  getAll(): IProduct[] {
+    const storedProducts = localStorage.getItem('products');
+    return storedProducts ? JSON.parse(storedProducts) : this.products;
+  }
+
+  getOne(id: number): IProduct | undefined {
+    const products = this.getAll(); // Buscar do localStorage
+    return products.find((product) => product.id === id);
   }
 
   updateStock(id: number, quantity: number) {
-    const product = this.products.find((p) => p.id === id);
-    if (product) {
-      product.stock += quantity;
-    }
+    const products = this.getAll();
+    const updatedProducts = products.map((product) => {
+      if (product.id === id) {
+        return { ...product, stock: product.stock + quantity };
+      }
+      return product;
+    });
+
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
+  }
+
+  saveProduct(product: IProduct) {
+    const products = this.getAll();
+    const updatedProducts = products.map((p) =>
+      p.id === product.id ? product : p
+    );
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
   }
 }

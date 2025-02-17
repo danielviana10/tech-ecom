@@ -1,8 +1,10 @@
 <form class="search-form" (ngSubmit)="search()">
-  <input type="text" placeholder="Search" name="description" [(ngModel)]="description"/>
-  <button type="submit">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
+  <div class="search-container">
+    <input type="text" placeholder="Search" name="description" [(ngModel)]="description"/>
+    <button type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
   <div class="cart-container">
     <a routerLink="/cart">
       <img class="img-bag" src="./icons/bag-shopping.svg">

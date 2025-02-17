@@ -39,23 +39,17 @@ export class ProductDetailsComponent {
 
   addToCart() {
     if (!this.product) return;
-
     if (this.quantity > this.product.stock) {
       this.notificationService.notify('Not enough stock available');
       return;
     }
-
     this.notificationService.notify('The product has been added to the cart');
-
     const product: ICartItem = {
       ...this.product,
       quantity: this.quantity,
       backgroundColor: this.backgroundColor,
     };
-
     this.cartService.addToCart(product);
-
-    this.product.stock -= this.quantity;
   }
 
   decrementQuantity() {

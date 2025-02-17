@@ -1,25 +1,57 @@
 <section class="product__container">
-  <div class="product-image__container" [style.background-color]="backgroundColor">
-    <img [src]="product?.image" alt="">
+  <div
+    class="product-image__container"
+    [style.background-color]="backgroundColor"
+  >
+    <img [src]="product?.image" alt="" />
   </div>
-  <div class="product-description__container" >
-    <h2 class="product__name">{{ product?.description}}</h2>
+  <div class="product-description__container">
+    <h2 class="product__name">{{ product?.description }}</h2>
     <h3 class="product-title__info">Product description:</h3>
     <p class="product__info">{{ product?.info }}</p>
     <div class="product-availability__container">
       <p class="product__availability">
-        {{ product?.stock === 0 ? 'Unavailable' : product?.stock + ' unit(s) in stock' }}
+        {{
+          product?.stock === 0
+            ? "Unavailable"
+            : product?.stock + " unit(s) in stock"
+        }}
       </p>
     </div>
 
     <div class="product-payment__container">
-      <h3 class="product__price">{{ product?.price | currency:"BRL"}}</h3>
+      <h3 class="product__price">{{ product?.price | currency : "BRL" }}</h3>
       <div class="product-payment__container">
-        <button class="label-btn btn1" type="button" (click)="decrementQuantity()" [style.background-color]="backgroundColor">-</button>
-        <input type="number" [(ngModel)]="quantity" min="1" max="{{ product?.stock }}">
-        <button class="label-btn btn2" type="button" (click)="incrementQuantity()" [style.background-color]="backgroundColor">+</button>
+        <button
+          class="label-btn btn1"
+          type="button"
+          (click)="decrementQuantity()"
+          [style.background-color]="backgroundColor"
+        >
+          -
+        </button>
+        <input
+          type="number"
+          [(ngModel)]="quantity"
+          min="1"
+          max="{{ product?.stock }}"
+        />
+        <button
+          class="label-btn btn2"
+          type="button"
+          (click)="incrementQuantity()"
+          [style.background-color]="backgroundColor"
+        >
+          +
+        </button>
       </div>
-      <button class="buy-btn" (click)="addToCart()" [style.background-color]="backgroundColor">Buy</button>
+      <button
+        class="buy-btn"
+        (click)="addToCart()"
+        [style.background-color]="backgroundColor"
+      >
+        Buy
+      </button>
     </div>
   </div>
 </section>

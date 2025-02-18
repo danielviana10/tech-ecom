@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { IProduct } from '../../products';
@@ -11,13 +11,15 @@ import { ProductsService } from '../products.service';
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
   products: IProduct[] = [];
   isHovered: { [key: number]: boolean } = {};
   private currentPage = 1;
   private pageSize = 6;
   public allProducts: IProduct[] = [];
-  private isLoading = false;
+  public isLoading = false;
+  private searchDescription: string = '';
+  public isFiltering: boolean = false;
 
   constructor(
     private productsService: ProductsService,
@@ -27,20 +29,38 @@ export class ProductsComponent {
 
   ngOnInit() {
     const storedProducts = localStorage.getItem('products');
-
     if (storedProducts) {
       this.allProducts = JSON.parse(storedProducts);
     } else {
       this.allProducts = this.productsService.getAll();
     }
 
-    this.loadProducts();
+    this.route.queryParams.subscribe((params) => {
+      this.searchDescription = params['description'] || '';
+      this.isFiltering = !!this.searchDescription;
+      this.resetProducts();
+      this.loadProducts();
+    });
+  }
+
+  resetProducts() {
+    this.products = [];
+    this.currentPage = 1;
   }
 
   loadProducts() {
+    let filteredProducts = this.allProducts;
+    if (this.searchDescription) {
+      filteredProducts = this.allProducts.filter((product) =>
+        product.description
+          .toLowerCase()
+          .includes(this.searchDescription.toLowerCase())
+      );
+    }
+
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    const newProducts = this.allProducts.slice(startIndex, endIndex);
+    const newProducts = filteredProducts.slice(startIndex, endIndex);
 
     setTimeout(() => {
       this.products = [...this.products, ...newProducts];
@@ -93,5 +113,7 @@ export class ProductsComponent {
     this.router.navigate(['/products', product.id], {
       state: { backgroundColor },
     });
+
+    window.scrollTo(0, 0);
   }
 }

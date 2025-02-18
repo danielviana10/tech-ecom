@@ -17,7 +17,7 @@ export const products: IProduct[] = [
   {
     id: 1,
     description: 'Gaming Mouse',
-    price: 439.0,
+    price: 76.0,
     priceDescription: 'Cash on PIX',
     image: './assets/mouse-3.png',
     stock: 10,
@@ -26,7 +26,7 @@ export const products: IProduct[] = [
   {
     id: 2,
     description: 'Apple Monitor',
-    price: 4180.5,
+    price: 732.5,
     priceDescription: 'Cash on PIX',
     image: './assets/monitor-2.png',
     stock: 10,
@@ -35,7 +35,7 @@ export const products: IProduct[] = [
   {
     id: 3,
     description: 'Mechanical Keyboard',
-    price: 459,
+    price: 80.35,
     priceDescription: 'Cash on PIX',
     image: './assets/teclado-1.png',
     stock: 10,
@@ -44,7 +44,7 @@ export const products: IProduct[] = [
   {
     id: 4,
     description: 'Pro Headphones',
-    price: 599.99,
+    price: 105.06,
     priceDescription: 'Cash on PIX',
     image: './assets/fone-de-ouvido-2.png',
     stock: 10,
@@ -53,7 +53,7 @@ export const products: IProduct[] = [
   {
     id: 5,
     description: 'AirPods Pro 2',
-    price: 2032.2,
+    price: 355.8,
     priceDescription: 'Cash on PIX',
     image: './assets/fone-de-ouvido-1.png',
     stock: 10,
@@ -62,7 +62,7 @@ export const products: IProduct[] = [
   {
     id: 6,
     description: 'HB2000 Headphones',
-    price: 169.9,
+    price: 29.75,
     priceDescription: 'Cash on PIX',
     image: './assets/headphone-black.png',
     stock: 10,
@@ -71,7 +71,7 @@ export const products: IProduct[] = [
   {
     id: 7,
     description: '1TB Seagate HDD',
-    price: 499.99,
+    price: 87.55,
     priceDescription: 'Cash on PIX',
     image: './assets/hd.png',
     stock: 10,
@@ -80,7 +80,7 @@ export const products: IProduct[] = [
   {
     id: 8,
     description: 'RTX Graphics Card Kit',
-    price: 6449.99,
+    price: 1129.49,
     priceDescription: 'Cash on PIX',
     image: './assets/placa-video.png',
     stock: 10,
@@ -89,7 +89,7 @@ export const products: IProduct[] = [
   {
     id: 9,
     description: 'Ryzen 7 Processor',
-    price: 1000,
+    price: 175.11,
     priceDescription: 'Cash on PIX',
     image: './assets/processador.png',
     stock: 10,
@@ -98,7 +98,7 @@ export const products: IProduct[] = [
   {
     id: 10,
     description: 'Dell Intel Core i5 Laptop',
-    price: 2500,
+    price: 437.79,
     priceDescription: 'Cash on PIX',
     image: './assets/laptop-1.png',
     stock: 10,
@@ -107,7 +107,7 @@ export const products: IProduct[] = [
   {
     id: 11,
     description: 'Galaxy Book4 Intel Core i7',
-    price: 4500,
+    price: 788,
     priceDescription: 'Cash on PIX',
     image: './assets/laptop-2.png',
     stock: 10,
@@ -116,7 +116,7 @@ export const products: IProduct[] = [
   {
     id: 12,
     description: 'Gaming Mouse',
-    price: 135,
+    price: 23.65,
     priceDescription: 'Cash on PIX',
     image: './assets/mouse-gamer.png',
     stock: 10,
@@ -125,7 +125,7 @@ export const products: IProduct[] = [
   {
     id: 13,
     description: 'MS116 Mouse',
-    price: 74.1,
+    price: 12.95,
     priceDescription: 'Cash on PIX',
     image: './assets/mouse-2.png',
     stock: 10,
@@ -134,7 +134,7 @@ export const products: IProduct[] = [
   {
     id: 14,
     description: 'Office 5+ Mouse',
-    price: 50,
+    price: 8.75,
     priceDescription: 'Cash on PIX',
     image: './assets/mouse-4.png',
     stock: 10,
@@ -143,7 +143,7 @@ export const products: IProduct[] = [
   {
     id: 15,
     description: 'Tgaming Keyboard',
-    price: 70.99,
+    price: 12.4,
     priceDescription: 'Cash on PIX',
     image: './assets/teclado-2.png',
     stock: 10,
@@ -152,7 +152,7 @@ export const products: IProduct[] = [
   {
     id: 16,
     description: 'AirPods Max White',
-    price: 4700,
+    price: 823.04,
     priceDescription: 'Cash on PIX',
     image: './assets/airpods-max-white.png',
     stock: 5,
@@ -161,7 +161,7 @@ export const products: IProduct[] = [
   {
     id: 17,
     description: 'Samsung Monitor',
-    price: 340,
+    price: 59.5,
     priceDescription: 'Cash on PIX',
     image: './assets/monitor-samsung.png',
     stock: 10,

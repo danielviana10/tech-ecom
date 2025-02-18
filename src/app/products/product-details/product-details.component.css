@@ -1,6 +1,8 @@
 .product__container {
     display: flex;
-    margin: 20px 0;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }
 
 .product-image__container {
@@ -11,6 +13,7 @@
 .product__container img {
     width: 350px;
     height: 350px;
+    padding: 20px 30px;
 }
 
 .product-description__container {
@@ -21,6 +24,7 @@
   padding: 20px 30px;
   flex: 1;
   background-color: white;
+  height: 350px;
 }
 
 .product__name {

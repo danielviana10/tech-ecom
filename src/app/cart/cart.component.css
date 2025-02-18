@@ -1,6 +1,10 @@
+.cart-container {
+  min-height: 80vh;
+}
+
 .cart-title {
   font-size: 44px;
-  color: var(--gray);
+  color: var(--black);
   font-weight: 700;
   padding: 8px 0;
 }
@@ -84,19 +88,21 @@ input::-webkit-inner-spin-button {
 
 .cart-total {
   font-size: 24px;
-  color: var(--gray);
+  color: var(--black);
   font-weight: 700;
   padding: 8px 0;
 }
 
 .buy-button {
-  background-color: var(--blue);
+  background-color: var(--black);
   border: none;
   color: white;
   padding: 10px;
   font-size: 22px;
   margin-bottom: 10px;
   transition: .3s all;
+  border-radius: 10px;
+  cursor: pointer
 }
 
 .buy-button:hover {

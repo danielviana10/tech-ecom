@@ -13,8 +13,8 @@
   box-sizing: border-box;
   flex: 1;
   padding: 5px 15px;
-  background-color: #ECFBF2;
-  color: var(--gray);
+  background-color: var(--clean-white);
+  color: var(--black);
   border: none;
   transition: all 0.3s ease-in-out;
   font-size: 16px;
@@ -27,7 +27,7 @@
 
 .search-form button {
   border: none;
-  background-color: #ECFBF2;
+  background-color: var(--clean-white);
   color: black;
   font-size: 14px;
   border-radius: 10px;
@@ -44,7 +44,7 @@
 
 a {
   text-decoration: none;
-  color: var(--gray);
+  color: var(--black);
   padding-left: 5px;
 }
 
@@ -61,7 +61,7 @@ a {
   position: absolute;
   top: -10px;
   right: -5px;
-  background-color: var(--gray);
+  background-color: var(--black);
   color: white;
   font-size: 12px;
   font-weight: bold;

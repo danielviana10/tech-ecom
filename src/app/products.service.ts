@@ -8,7 +8,6 @@ export class ProductsService {
   products: IProduct[] = products;
 
   constructor() {
-    // Se não houver produtos no localStorage, salva os produtos iniciais
     if (!localStorage.getItem('products')) {
       localStorage.setItem('products', JSON.stringify(this.products));
     }
@@ -20,7 +19,7 @@ export class ProductsService {
   }
 
   getOne(id: number): IProduct | undefined {
-    const products = this.getAll(); // Buscar do localStorage
+    const products = this.getAll();
     return products.find((product) => product.id === id);
   }
 

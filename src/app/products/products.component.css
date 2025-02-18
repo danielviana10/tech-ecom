@@ -79,12 +79,12 @@
 .product-item__name {
     font-size: 16px;
     font-weight: 600;
-    color: var(--gray);
+    color: var(--black);
     width: 8rem;
 }
 
 .product-item__price {
-    color: var(--gray);
+    color: var(--black);
     font-size: 16px;
     font-weight: bold;
 }
@@ -95,7 +95,7 @@
 }
 
 .product-item__buy-button {
-  background-color: var(--gray);
+  background-color: var(--black);
   border: none;
   color: white;
   font-size: 12px;

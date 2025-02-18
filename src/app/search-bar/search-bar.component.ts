@@ -9,26 +9,21 @@ import { CartService } from '../cart.service';
   imports: [FormsModule, CommonModule, RouterModule],
   standalone: true,
   templateUrl: './search-bar.component.html',
-  styleUrl: './search-bar.component.css'
+  styleUrl: './search-bar.component.css',
 })
 export class SearchBarComponent {
-
   description: string = '';
 
-  constructor(
-    private router: Router,
-    public cartService: CartService
-  ) {
-
-  }
+  constructor(private router: Router, public cartService: CartService) {}
 
   search() {
-    if(this.description) {
-      this.router.navigate(['/products'], {queryParams: {description: this.description}});
+    if (this.description) {
+      this.router.navigate(['/products'], {
+        queryParams: { description: this.description },
+      });
       return;
     }
 
     this.router.navigate(['/products']);
   }
-
 }

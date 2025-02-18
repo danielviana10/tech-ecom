@@ -12,7 +12,7 @@
         <div class="product-list__texts">
           <h2 class="product-item__name">{{ product.description }}</h2>
           <p class="product-item__price-description">{{ product.priceDescription }}</p>
-          <p class="product-item__price">{{ product.price | currency : "BRL" }}</p>
+          <p class="product-item__price">{{ product.price | currency }}</p>
         </div>
         <button
           class="product-item__buy-button"
@@ -28,7 +28,7 @@
     </a>
   </div>
 
-  <div *ngIf="products.length < allProducts.length" class="loading-container">
+  <div *ngIf="!isFiltering && products.length < allProducts.length" class="loading-container">
     <div class="loading-spinner"></div>
   </div>
 </section>

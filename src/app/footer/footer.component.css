@@ -1,12 +1,12 @@
 .footer {
   background-color: var(--light-gray);
-  color: var(--gray);
+  color: var(--black);
   font-size: 18px;
 }
 
 .footer__container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-flow: row wrap;
   padding: 20px;
 }
@@ -15,7 +15,7 @@
   text-align: center;
   font-weight: bold;
   padding: 20px;
-  color: var(--gray);
+  color: var(--black);
 }
 
 .footer__title {
@@ -26,7 +26,7 @@
 }
 
 .footer__about-text {
-  width: 400px;
+  width: 600px;
   text-align: justify;
 }
 

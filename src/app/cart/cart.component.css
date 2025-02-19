@@ -15,7 +15,8 @@
   margin-top: 20px;
 }
 
-.cart-table th, .cart-table td {
+.cart-table th,
+.cart-table td {
   padding: 12px;
   text-align: center;
   vertical-align: middle;
@@ -79,7 +80,7 @@ input::-webkit-inner-spin-button {
   border: none;
   color: white;
   padding: 5px;
-  transition: .2s all;
+  transition: 0.2s all;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -104,27 +105,42 @@ input::-webkit-inner-spin-button {
   padding: 10px;
   font-size: 22px;
   margin-bottom: 10px;
-  transition: .3s all;
+  transition: 0.3s all;
   border-radius: 10px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .buy-button:hover {
-  background-color:rgb(65, 65, 65);
+  background-color: rgb(65, 65, 65);
 }
 
 .label-btn {
   border-radius: 50%;
-  font-size: 16px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   border: none;
   cursor: pointer;
-  font-weight: 600;
+  color: white;
 }
 
 .label-btn:hover {
   filter: brightness(0.9);
+}
+
+.cart-mobile-quantity .label-btn {
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
 }
 
 .btn1 {
@@ -152,8 +168,10 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 
-.cart-mobile-quantity {
-  padding-left: 6rem;
+.cart-mobile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cart-mobile-description {
@@ -176,9 +194,8 @@ input::-webkit-inner-spin-button {
 
 .cart-mobile-quantity {
   display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 10px 0;
+  justify-content: flex-end;
+  width: 11rem;
 }
 
 .cart-mobile-quantity input {
@@ -228,12 +245,21 @@ input::-webkit-inner-spin-button {
     padding: 8px 16px;
   }
 
+  .label-btn {
+    border-radius: 50%;
+    font-size: 16px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+  }
+
   .cart-mobile-quantity {
     display: flex;
     align-items: center;
     gap: 1px;
     margin: 2px 0;
-    padding-left: 5.5rem
   }
 
   .cart-mobile-quantity input {

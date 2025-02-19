@@ -129,11 +129,7 @@ input::-webkit-inner-spin-button {
   font-weight: 700;
 }
 
-.product-payment__container .btn1:hover {
-  filter: brightness(0.9);
-}
-
-.product-payment__container .btn2:hover {
+.product-payment__container .label-btn:hover {
   filter: brightness(0.9);
 }
 

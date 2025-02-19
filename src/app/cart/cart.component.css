@@ -209,7 +209,10 @@ input::-webkit-inner-spin-button {
   }
 
   .cart-mobile {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .cart-title {

@@ -21,9 +21,10 @@ export class SearchBarComponent {
       this.router.navigate(['/products'], {
         queryParams: { description: this.description },
       });
-      return;
+    } else {
+      this.router.navigate(['/products']);
     }
 
-    this.router.navigate(['/products']);
+    this.description = '';
   }
 }

@@ -87,7 +87,7 @@ export class ProductsComponent implements OnInit {
     const scrollY = window.scrollY;
     const visibleHeight = window.innerHeight;
     const pageHeight = document.documentElement.scrollHeight;
-    const threshold = 100;
+    const threshold = 300;
 
     return scrollY + visibleHeight >= pageHeight - threshold;
   }

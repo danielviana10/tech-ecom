@@ -9,7 +9,11 @@
         class="product-image__container"
         [style.background-color]="getBackgroundColor(i)"
       >
-        <img [src]="product.image" [alt]="product.description" loading="lazy" />
+        <img
+          [src]="product.image"
+          [alt]="product.description ? product.description : 'Product image'"
+          loading="lazy"
+        />
       </div>
       <div class="product-list__info">
         <div class="product-list__texts">
@@ -20,6 +24,7 @@
           <p class="product-item__price">{{ product.price | currency }}</p>
         </div>
         <button
+          type="button"
           class="product-item__buy-button"
           (mouseenter)="onMouseEnter(product.id)"
           (mouseleave)="onMouseLeave(product.id)"

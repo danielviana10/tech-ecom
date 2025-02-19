@@ -36,10 +36,10 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0px 15px 15px 0px;
-  padding: 15px 20px;
+  padding: 20px;
   flex: 1;
   background-color: white;
-  height: auto;
+  height: 20rem;
   min-height: 300px;
 }
 
@@ -197,7 +197,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
     width: 100%;
     max-width: 65vw;
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
 
   .product-image__container {

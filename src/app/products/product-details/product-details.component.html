@@ -17,10 +17,10 @@
             : product?.stock + " unit(s) in stock"
         }}
       </p>
+      <h3 class="product__price">{{ product?.price | currency }}</h3>
     </div>
 
     <div class="product-payment__container">
-      <h3 class="product__price">{{ product?.price | currency }}</h3>
       <div class="product-payment__container">
         <button
           class="label-btn btn1"

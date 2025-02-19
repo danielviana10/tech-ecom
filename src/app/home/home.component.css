@@ -7,8 +7,8 @@
 }
 
 .container-img {
-  width: 400px;
-  height: 400px;
+  max-width: 400px;
+  max-height: 400px;
   position: relative;
 }
 
@@ -34,4 +34,34 @@
 .text-bottom-right {
   bottom: 55px;
   right: -110px;
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    margin-bottom: 5rem;
+  }
+
+  .container-img {
+    width: 17rem;
+    height: 17rem;
+    position: relative;
+  }
+
+  .text-top-left,
+  .text-bottom-right {
+    position: absolute;
+    color: #8B4513;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .text-top-left {
+    top: 2rem;
+    left: -2rem;
+  }
+
+  .text-bottom-right {
+    bottom: 2.5rem;
+    right: -2rem;;
+  }
 }

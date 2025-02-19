@@ -16,9 +16,9 @@
   background-color: var(--clean-white);
   color: var(--black);
   border: none;
-  transition: all 0.3s ease-in-out;
   font-size: 16px;
   border-radius: 15px;
+  width: 14rem;
 }
 
 .search-form input:focus {
@@ -70,4 +70,15 @@ a {
   height: 18px;
   text-align: center;
   line-height: 18px;
+}
+
+@media (max-width: 768px) {
+  .search-form input {
+    width: 10rem;
+  }
+
+  .search-form {
+    width: 255px;
+    justify-content: space-between;
+  }
 }

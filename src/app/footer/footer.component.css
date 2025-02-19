@@ -2,13 +2,22 @@
   background-color: var(--light-gray);
   color: var(--black);
   font-size: 18px;
+  width: 100%;
+  margin: auto;
 }
 
 .footer__container {
   display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 20px 10rem;
+}
+
+.footer__container section {
+  width: 35rem;
+}
+
+.text__container {
+  display: flex;
 }
 
 .footer__copyright {
@@ -25,15 +34,32 @@
   margin-bottom: 5px;
 }
 
-.footer__about-text {
-  width: 600px;
-  text-align: justify;
-}
-
 .footer i {
   color: black;
 }
 
 .footer li {
   margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .footer__container section {
+    width: 18rem;
+  }
+
+  address {
+    width: 18rem;
+    margin-top: 1rem;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 0px 20px;
+  }
+
+  p, li {
+    font-size: 19px;
+  }
+
 }

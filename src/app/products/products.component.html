@@ -2,16 +2,21 @@
   <div
     class="product-list__card animate-up"
     *ngFor="let product of products; let i = index; trackBy: trackByProductId"
-    [ngStyle]="{'animation-delay': (i * 0.05) + 's'}"
+    [ngStyle]="{ 'animation-delay': i * 0.05 + 's' }"
   >
     <a class="product-list__link">
-      <div class="product-image__container" [style.background-color]="getBackgroundColor(i)">
+      <div
+        class="product-image__container"
+        [style.background-color]="getBackgroundColor(i)"
+      >
         <img [src]="product.image" [alt]="product.description" loading="lazy" />
       </div>
       <div class="product-list__info">
         <div class="product-list__texts">
           <h2 class="product-item__name">{{ product.description }}</h2>
-          <p class="product-item__price-description">{{ product.priceDescription }}</p>
+          <p class="product-item__price-description">
+            {{ product.priceDescription }}
+          </p>
           <p class="product-item__price">{{ product.price | currency }}</p>
         </div>
         <button
@@ -20,7 +25,10 @@
           (mouseleave)="onMouseLeave(product.id)"
         >
           <i class="fa-solid fa-plus"></i>
-          <span (click)="navigateToProduct(product, i)" *ngIf="isHovered[product.id]">
+          <span
+            (click)="navigateToProduct(product, i)"
+            *ngIf="isHovered[product.id] || isMobile"
+          >
             Add to cart
           </span>
         </button>
@@ -28,7 +36,10 @@
     </a>
   </div>
 
-  <div *ngIf="!isFiltering && products.length < allProducts.length" class="loading-container">
+  <div
+    *ngIf="!isFiltering && products.length < allProducts.length"
+    class="loading-container"
+  >
     <div class="loading-spinner"></div>
   </div>
 </section>

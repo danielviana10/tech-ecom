@@ -16,11 +16,12 @@
 }
 
 .contact-form {
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 50px;
-    width: 400px;
+    width: 100%;
 }
 
 .contact-form input {
@@ -88,6 +89,27 @@ textarea {
     margin-top: 0.25em;
 }
 
+address {
+    max-width: 500px;
+    width: 100%;
+}
+
 iframe {
   border-radius: 15px;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .contact__container {
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 0;
+        padding: 20px;
+        height: auto;
+    }
+
+    .contact-form input, textarea {
+        width: 100%;
+    }
 }

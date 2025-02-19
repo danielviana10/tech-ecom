@@ -14,6 +14,7 @@ import { ProductsService } from '../products.service';
 export class ProductsComponent implements OnInit {
   products: IProduct[] = [];
   isHovered: { [key: number]: boolean } = {};
+  public isMobile = window.innerWidth <= 768;
   private currentPage = 1;
   private pageSize = 6;
   public allProducts: IProduct[] = [];
@@ -77,21 +78,30 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
   isNearBottom(): boolean {
     const scrollY = window.scrollY;
     const visibleHeight = window.innerHeight;
     const pageHeight = document.documentElement.scrollHeight;
-    const threshold = 200;
+    const threshold = 100;
 
     return scrollY + visibleHeight >= pageHeight - threshold;
   }
 
   onMouseEnter(productId: number) {
-    this.isHovered[productId] = true;
+    if (!this.isMobile) {
+      this.isHovered[productId] = true;
+    }
   }
 
   onMouseLeave(productId: number) {
-    this.isHovered[productId] = false;
+    if (!this.isMobile) {
+      this.isHovered[productId] = false;
+    }
   }
 
   trackByProductId(index: number, product: IProduct): number {
@@ -100,11 +110,11 @@ export class ProductsComponent implements OnInit {
 
   getBackgroundColor(index: number): string {
     if (index % 3 === 0) {
-      return '#81B9DD';
+      return 'var(--blue)';
     } else if (index % 3 === 1) {
-      return '#A1FBC6';
+      return 'var(--green)';
     } else {
-      return '#F7E0D8';
+      return 'var(--pink)';
     }
   }
 

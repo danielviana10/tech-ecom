@@ -1,19 +1,29 @@
-<header class="main-header">
-  <h1 class="main-header__title">
-    <img
-      class="main-header__img"
-      src="./assets/tech-ecom-logo.svg"
-      alt="Tech Ecom Logo"
-    />
-  </h1>
-  <div class="container-menu">
-    <nav class="main-header__menu">
-      <ul>
-        <li><a routerLink="/">HOME</a></li>
-        <li><a routerLink="/products">PRODUCTS</a></li>
-        <li><a routerLink="/contacts">CONTACTS</a></li>
-      </ul>
-    </nav>
+<header class="container-header">
+  <div class="main-header">
+    <h1 class="main-header__title">
+      <img
+        class="main-header__img"
+        src="./assets/tech-ecom-logo.svg"
+        alt="Tech Ecom Logo"
+      />
+    </h1>
+
+    <button class="hamburger" (click)="toggleMenu()">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+
+    <div class="container-menu" [class.active]="isMenuOpen">
+      <nav class="main-header__menu">
+        <ul>
+          <li><a routerLink="/" (click)="closeMenu()">HOME</a></li>
+          <li><a routerLink="/products" (click)="closeMenu()">PRODUCTS</a></li>
+          <li><a routerLink="/contacts" (click)="closeMenu()">CONTACTS</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
   <app-search-bar></app-search-bar>
 </header>
+

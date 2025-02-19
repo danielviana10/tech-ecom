@@ -228,16 +228,6 @@ input::-webkit-inner-spin-button {
     padding: 8px 16px;
   }
 
-  .label-btn {
-    border-radius: 50%;
-    font-size: 18px;
-    width: 26px;
-    height: 26px;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-  }
-
   .cart-mobile-quantity {
     display: flex;
     align-items: center;

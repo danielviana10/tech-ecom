@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import emailjs from 'emailjs-com';
 import { NotificationService } from '../notification.service';
 
 @Component({
@@ -50,7 +51,42 @@ export class ContactsComponent {
   }
 
   sendForm() {
-    this.notificationService.notify('The message has been sent!');
-    this.formContact.reset();
+    if (this.formContact.valid) {
+      const formData = this.formContact.value;
+
+      const templateParams = {
+        name: formData.name,
+        to_name: 'Tech Ecom',
+        subject: formData.subject,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+      };
+
+      emailjs
+        .send(
+          'service_r0mg3xd',
+          'template_a91964h',
+          templateParams,
+          'ypkB0lIF-6escuf9G'
+        )
+        .then(
+          (response) => {
+            console.log('Email enviado com sucesso:', response);
+            this.notificationService.notify('The message has been sent!');
+            this.formContact.reset();
+          },
+          (error) => {
+            console.log('Erro ao enviar email:', error);
+            this.notificationService.notify(
+              'There was an error sending your message. Please try again later.'
+            );
+          }
+        );
+    } else {
+      this.notificationService.notify(
+        'Please fill out all the fields correctly.'
+      );
+    }
   }
 }

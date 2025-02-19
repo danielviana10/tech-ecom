@@ -4,6 +4,7 @@
   font-size: 18px;
   width: 100%;
   margin: auto;
+  padding-top: 2rem;
 }
 
 .footer__container {
@@ -40,6 +41,12 @@
 
 .footer li {
   margin: 10px 0;
+}
+
+a {
+  margin-left: 2px;
+  color: var(--black);
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

@@ -47,4 +47,13 @@ export class CartService {
     this.items = [];
     localStorage.removeItem('cart');
   }
+
+  updateQuantity(id: number, quantity: number) {
+    const itemToUpdate = this.items.find((item) => item.id === id);
+
+    if (itemToUpdate) {
+      itemToUpdate.quantity = quantity;
+      localStorage.setItem('cart', JSON.stringify(this.items));
+    }
+  }
 }

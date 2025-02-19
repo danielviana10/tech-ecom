@@ -133,7 +133,7 @@ input::-webkit-inner-spin-button {
   filter: brightness(0.9);
 }
 
-.buy-btn {
+.add-btn {
   border: none;
   padding: 11px;
   color: white;
@@ -145,7 +145,7 @@ input::-webkit-inner-spin-button {
   font-weight: 700;
 }
 
-.buy-btn:hover {
+.add-btn:hover {
   filter: brightness(0.9);
 }
 
@@ -255,7 +255,7 @@ input::-webkit-inner-spin-button {
     padding: 8px;
   }
 
-  .buy-btn {
+  .add-btn {
     margin: 0px;
     font-size: 20px;
     padding: 8px;

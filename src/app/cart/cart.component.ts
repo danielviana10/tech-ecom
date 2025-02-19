@@ -37,18 +37,30 @@ export class CartComponent {
     );
   }
 
-  decrementCartItemQuantity(cartItem: any): void {
+  decrementCartItemQuantity(cartItem: ICartItem): void {
     if (cartItem.quantity > 1) {
       cartItem.quantity--;
+      this.cartService.updateQuantity(cartItem.id, cartItem.quantity);
       this.calculateTotalPrice();
     }
   }
 
-  incrementCartItemQuantity(cartItem: any): void {
+  incrementCartItemQuantity(cartItem: ICartItem): void {
     if (cartItem.quantity < cartItem.stock) {
       cartItem.quantity++;
+      this.cartService.updateQuantity(cartItem.id, cartItem.quantity);
       this.calculateTotalPrice();
     }
+  }
+
+  validateQuantity(cartItem: ICartItem): void {
+    if (cartItem.quantity < 1) {
+      cartItem.quantity = 1;
+    } else if (cartItem.quantity > cartItem.stock) {
+      cartItem.quantity = cartItem.stock;
+    }
+    this.cartService.updateQuantity(cartItem.id, cartItem.quantity);
+    this.calculateTotalPrice();
   }
 
   removeFromCart(id: number): void {
@@ -61,6 +73,17 @@ export class CartComponent {
   }
 
   buyItems() {
+    const invalidItems = this.cartItems.filter(
+      (item) => item.quantity < 1 || item.quantity > item.stock
+    );
+
+    if (invalidItems.length > 0) {
+      this.notificationService.notify(
+        'Please check the quantities of the items in your cart.'
+      );
+      return;
+    }
+
     this.notificationService.notify('You have completed your purchase!');
     const cartItems = this.cartService.getterCart();
 

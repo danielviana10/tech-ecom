@@ -40,6 +40,7 @@
                 type="number"
                 [(ngModel)]="cartItem.quantity"
                 (change)="calculateTotalPrice()"
+                (blur)="validateQuantity(cartItem)"
                 min="1"
                 [max]="cartItem.stock"
               />
@@ -95,6 +96,7 @@
               type="number"
               [(ngModel)]="cartItem.quantity"
               (change)="calculateTotalPrice()"
+              (blur)="validateQuantity(cartItem)"
               min="1"
               [max]="cartItem.stock"
             />

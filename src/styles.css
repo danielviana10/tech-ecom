@@ -78,3 +78,30 @@ textarea {
   font-family: "Montserrat", serif;
   font-weight: 500;
 }
+
+.custom-snackbar {
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .custom-snackbar {
+    max-width: 70%;
+    right: 10px;
+    left: auto;
+    top: 10px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+}

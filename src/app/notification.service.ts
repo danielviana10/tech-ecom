@@ -12,6 +12,7 @@ export class NotificationService {
       duration: 3000,
       verticalPosition: 'top',
       horizontalPosition: 'end',
+      panelClass: ['custom-snackbar'],
     });
   }
 }

@@ -1,8 +1,8 @@
 export const environment = {
   production: false,
-  emailjsServiceId: 'your-emailjs-service-id',
-  emailjsTemplateId: 'your-emailjs-template-id',
-  emailjsUserId: 'your-emailjs-user-id',
+  emailjsServiceId: 'service_r0mg3xd',
+  emailjsTemplateId: 'template_a91964h',
+  emailjsUserId: 'ypkB0lIF-6escuf9G',
 };
 
 if (

@@ -55,6 +55,23 @@ export class ContactsComponent {
     if (this.formContact.valid) {
       const formData = this.formContact.value;
 
+      const emailjsServiceId =
+        environment.emailjsServiceId || process.env['EMAILJS_SERVICE_ID'] || '';
+      const emailjsTemplateId =
+        environment.emailjsTemplateId ||
+        process.env['EMAILJS_TEMPLATE_ID'] ||
+        '';
+      const emailjsUserId =
+        environment.emailjsUserId || process.env['EMAILJS_USER_ID'] || '';
+
+      if (!emailjsServiceId || !emailjsTemplateId || !emailjsUserId) {
+        console.error('EmailJS environment variables are missing!');
+        this.notificationService.notify(
+          'The email service is not properly configured.'
+        );
+        return;
+      }
+
       const templateParams = {
         name: formData.name,
         to_name: 'Tech Ecom',
@@ -66,10 +83,10 @@ export class ContactsComponent {
 
       emailjs
         .send(
-          environment.emailjsServiceId,
-          environment.emailjsTemplateId,
+          emailjsServiceId,
+          emailjsTemplateId,
           templateParams,
-          environment.emailjsUserId
+          emailjsUserId
         )
         .then(
           (response) => {

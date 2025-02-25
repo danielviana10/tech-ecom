@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import emailjs from 'emailjs-com';
 import { NotificationService } from '../notification.service';
+import { environment } from '../../environments/environments';
 
 @Component({
   selector: 'app-contacts',
@@ -65,10 +66,10 @@ export class ContactsComponent {
 
       emailjs
         .send(
-          'service_r0mg3xd',
-          'template_a91964h',
+          environment.emailjsServiceId,
+          environment.emailjsTemplateId,
           templateParams,
-          'ypkB0lIF-6escuf9G'
+          environment.emailjsUserId
         )
         .then(
           (response) => {
